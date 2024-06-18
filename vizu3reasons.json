@@ -1,0 +1,37 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+  "width": 500,
+  "height": 200,
+   
+  "data": {
+    "url": "https://raw.githubusercontent.com/renatabalazs/renatabalazs.github.io/main/reasons.csv"
+     },
+ 
+  "mark": {
+    "type": "bar",
+    "color": "green"},
+
+  "encoding": {
+    "y": {
+      "field": "Type of activity",
+      "type": "nominal",
+      "axis": {
+        "labelAngle": 0,
+        "title": "Reasons"
+      }
+    },
+    "x": {
+      "field": "Percentage",
+      "type": "quantitative",
+      "axis": {
+        "title": "Percentage"
+      }
+    },
+    "tooltip": [
+      {"field": "Reasons", "type": "nominal"},
+      {"field": "Percentage", "type": "quantitative"}
+    ]
+  },
+  "title":"Indokok amiért a lakosság fesztiválokat látogat, százalékban kifejezve"
+}

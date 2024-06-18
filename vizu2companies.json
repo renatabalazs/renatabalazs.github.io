@@ -1,0 +1,40 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+  "width": 500,
+  "height": 200,
+   
+  "data": {
+    "values": [
+      {"Company": "UNTOLD SRL", "Turnover": 68.40},
+      {"Company": "Global Records SRL", "Turnover": 45.90},
+      {"Company": "Festival Tickets Management SRL", "Turnover": 26.93},
+      {"Company": "Neversea SRL", "Turnover": 25.25},
+      {"Company": "Five's International SRL", "Turnover": 23.32}
+    ]
+  },
+ 
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Company",
+      "type": "nominal",
+      "axis": {
+        "labelAngle": -45,
+        "title": "Company"
+      }
+    },
+    "y": {
+      "field": "Turnover",
+      "type": "quantitative",
+      "axis": {
+        "title": "Turnover"
+      }
+    },
+    "tooltip": [
+      {"field": "Company", "type": "nominal"},
+      {"field": "Turnover", "type": "quantitative"}
+    ]
+  },
+  "title":"Legnagyobb szórakoztatóiparban működő vállalatok Romániában 2018-ban, millió lejben kifejezve"
+}

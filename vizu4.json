@@ -1,0 +1,26 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Szórakoztató ipar fejlődése 2010 és 2023 között romániában, millió lejben kifejezve",
+  "data": {
+    "url": "https://raw.githubusercontent.com/renatabalazs/renatabalazs.github.io/main/eurostattt.csv"
+  },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "timeUnit": "year"
+    },
+    "y": {
+      "field": "RON million",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Symbol",
+      "type": "nominal"
+    }
+  }
+}

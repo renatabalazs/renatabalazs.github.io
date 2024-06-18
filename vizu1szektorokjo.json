@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Fő szektorok hozzájárulása Románia GDP-jéhez 2020-ban százalékban kifejezve",
+  "data": {
+    "url": "https://raw.githubusercontent.com/renatabalazs/renatabalazs.github.io/main/szektorokrom.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 20,
+        "stroke": "#fff"
+      },
+      "encoding": {
+        "theta": {"field": "Percentage", "type": "quantitative", "stack": true},
+        "color": {"field": "Industry", "type": "nominal"}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "radiusOffset": 10
+      },
+      "encoding": {
+        "text": {
+          "field": "Percentage",
+          "type": "quantitative",
+          "format": ""
+        },
+        "theta": {"field": "Percentage", "type": "quantitative"},
+        "color": {"field": "Industry", "type": "nominal"},
+        "radius": {
+          "value": 130
+        }
+      }
+    }
+  ]
+}

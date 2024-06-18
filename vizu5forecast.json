@@ -1,0 +1,82 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 450,
+  "height": 400,
+  "title": "Publikus események bevétel megoszlásának előrejelzése európában, milliárd dollárban kifejezve",
+  "data": {
+    "url": "https://raw.githubusercontent.com/renatabalazs/renatabalazs.github.io/main/elorejelzes.csv"
+  },
+  "transform": [
+    {
+      "fold": ["Music", "Sports", "Comedy", "Theatre"],
+      "as": ["Category", "Revenue"]
+    },
+    {
+      "calculate": "datum.Category === 'Music' ? 0 : datum.Category === 'Sports' ? 1 : datum.Category === 'Comedy' ? 2 : 3",
+      "as": "CategoryOrder"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusTopLeft": 3,
+        "cornerRadiusTopRight": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year"
+        },
+        "y": {
+          "field": "Revenue",
+          "type": "quantitative",
+          "stack": "zero",
+          "title": "Revenue billion $"
+        },
+        "color": {
+          "field": "Category",
+          "type": "nominal",
+          "title": "Category",
+          "scale": {
+            "domain": ["Music", "Sports", "Comedy", "Theatre"]
+          }
+        },
+        "order": {
+          "field": "CategoryOrder",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -10,
+        "color": "black"
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "Revenue",
+          "type": "quantitative",
+          "stack": "zero"
+        },
+        "text": {
+          "field": "Revenue",
+          "type": "quantitative"
+        },
+        "order": {
+          "field": "CategoryOrder",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}
+
+
+
